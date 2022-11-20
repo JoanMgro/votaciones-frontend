@@ -16,6 +16,26 @@ const routes: Routes = [{
       .then(m => m.SeguridadModule),
     },
     {
+      path: 'candidatos',
+      loadChildren: () => import('./candidatos/candidatos.module')
+      .then(m => m.CandidatosModule),
+    },
+    {
+      path: 'mesas',
+      loadChildren: () => import('./mesas/mesas.module')
+      .then(m => m.MesasModule),
+    },
+    {
+      path: 'partidos',
+      loadChildren: () => import('./partidos/partidos.module')
+      .then(m => m.PartidosModule),
+    },
+    {
+      path: 'resultados',
+      loadChildren: () => import('./resultados/resultados.module')
+      .then(m => m.ResultadosModule),
+    },
+    {
       path: 'dashboard',
       component: ECommerceComponent,
     },
