@@ -1,6 +1,12 @@
 export class Resultado {
     _id?:string;
-    votos?:string;
-    candidato?:object;
-    mesa?:object;
+    candidato?:string;
+    mesa?:string;
+    votos?:number;
+    
+ 
+
+    cedula?: string;
+    partido?:string;
+    
 }

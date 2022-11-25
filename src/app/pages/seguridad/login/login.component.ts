@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Usuario } from '../../../modelos/usuario.model';
 import { SeguridadService } from '../../../servicios/seguridad.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'ngx-login',
@@ -10,7 +11,8 @@ import { SeguridadService } from '../../../servicios/seguridad.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  
+  rol:string="";
   correo:string="";
   clave:string="";
   constructor(private miServicioSeguridad : SeguridadService,
@@ -27,7 +29,27 @@ export class LoginComponent implements OnInit {
     }
     this.miServicioSeguridad.login(elUsuario).subscribe(
     data=>{
-    this.router.navigate(['pages/dashboard']);
+    console.log(data);
+    this.rol= this.getDecodedAccessToken(data['token']);
+    this.rol= this.rol['sub']['rol']['nombre'];
+    console.log(this.rol);
+
+    if(this.rol === "ciudadano"){
+      console.log('hello cuidadano');
+      this.router.navigate(['pages/resultados/reportar']);
+    }
+
+    if(this.rol === "administrador"){
+      console.log('hello');
+      this.router.navigate(['pages/administrador/admon']);
+
+    }
+    if(this.rol === "jurado"){
+      console.log('hello jurado');
+      this.router.navigate(['pages/administrador/jurado']);
+
+    }
+    
     this.miServicioSeguridad.guardarSesion(data);
     },
     error=>{
@@ -39,5 +61,13 @@ export class LoginComponent implements OnInit {
     });
   }
 );  
+}
+
+getDecodedAccessToken(token: string): any {
+  try {
+    return jwt_decode(token);
+  } catch(Error) {
+    return null;
+  }
 }
 }

@@ -15,4 +15,24 @@ export class CandidattoService {
     return this.http.get<Candidato[]>(`${environment.url_gateway}/candidatos`);
   }
 
+  eliminar(id:string){
+    return this.http.delete<Candidato>(`${environment.url_gateway}/candidatos/eliminar/${id}`);
+  } 
+
+  getCandidato(id: string): Observable<Candidato> {
+    return this.http.get<Candidato>(`${environment.url_gateway}/candidatos/ver/${id}`);
+  }
+
+  crear(elCandidato: Candidato) {
+    return this.http.post(`${environment.url_gateway}/candidatos/crear`, elCandidato);
+  }
+  editar(id:string,elCandidato: Candidato) {
+    return this.http.put(`${environment.url_gateway}/candidatos/modificar/${id}`, elCandidato);
+  }
+
+  asociar(id_candidato:string,id_partido: string) {
+    return this.http.put(`${environment.url_gateway}/candidatos/${id_candidato}/partidos/${id_partido}`,'');
+  }
+
+
 }

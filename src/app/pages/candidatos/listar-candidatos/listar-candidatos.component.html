@@ -26,9 +26,16 @@
                                 (click)="eliminar(candidatoActual._id)">
                             <i class="fas fa-solid fa-trash"></i>
                         </button>
+                        <button type="button" class="btn btn-primary" 
+                        (click)="asociar(candidatoActual._id)">
+                    <i class="fas fa-solid fa-at"></i>
+                </button>
                     </td>
                 </tr>
             </ng-container>
         </table>
     </nb-card>
 </div>
+<button type="button" class="btn btn-success" (click)="home()">
+    Home
+</button>

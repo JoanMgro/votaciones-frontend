@@ -1,0 +1,80 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header>
+            VOTACION TOTAL 
+                      
+
+        </nb-card-header>
+        <table class="table">
+            <tr>
+                <th *ngFor="let columaActual of nombresColumnas">{{columaActual}}</th>
+            </tr>
+            <ng-container *ngFor="let resultadoActual of resultados">
+                <tr>
+                    <td>{{resultadoActual.candidato}}</td>
+                    <td>{{resultadoActual.partido}}</td>
+                    <td>{{resultadoActual.votos}}</td>
+       
+                    
+                </tr>
+            </ng-container>
+        </table>
+    </nb-card> 
+</div>
+<div class="col-lg-9">
+    <nb-card>
+        <nb-card-header>
+            VOTACION POR MESA
+               
+
+        </nb-card-header>
+        <div class="col-lg-7">
+            <select name="myselect" [(ngModel)] = "id_mesa">
+                <option [value]="mesaActual._id" 
+                *ngFor="let mesaActual of mesas">{{mesaActual.numero}}</option>
+            </select>
+            <button type="button" class="btn btn-success" (click)="listarVotosMesa()">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+
+        <table *ngIf = "listarMesaFlag" class="table" >
+            <tr>
+                <th *ngFor="let columaActual of nombresColumnas">{{columaActual}}</th>
+            </tr>
+            <ng-container *ngFor="let resultadoActual of resultadosEnMesa">
+                <tr>
+                    <td>{{resultadoActual.candidato}}</td>
+                    <td>{{resultadoActual.partido}}</td>
+                    <td>{{resultadoActual.votos}}</td>
+       
+                    
+                </tr>
+            </ng-container>
+        </table>
+  
+       
+    </nb-card> 
+</div>
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header>
+            PARTICIPACION MESAS 
+                      
+
+        </nb-card-header>
+        <table class="table">
+            <tr>
+                <th *ngFor="let columaActual of nombresColumnasDos">{{columaActual}}</th>
+            </tr>
+            <ng-container *ngFor="let resultadoActual of resultadosMesa">
+                <tr>
+                    <td>{{resultadoActual.mesa}}</td>
+                    <td>{{resultadoActual.votos}}</td>
+       
+                    
+                </tr>
+            </ng-container>
+        </table>
+    </nb-card> 
+</div>

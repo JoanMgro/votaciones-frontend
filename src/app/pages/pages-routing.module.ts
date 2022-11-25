@@ -36,6 +36,16 @@ const routes: Routes = [{
       .then(m => m.ResultadosModule),
     },
     {
+      path: 'administrador',
+      loadChildren: () => import('./administrador/administrador.module')
+      .then(m => m.AdministradorModule),
+    },
+    {
+      path: 'jurado',
+      loadChildren: () => import('./jurado/jurado.module')
+      .then(m => m.JuradoModule),
+    },
+    {
       path: 'dashboard',
       component: ECommerceComponent,
     },
