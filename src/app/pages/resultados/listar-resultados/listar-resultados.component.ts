@@ -19,6 +19,19 @@ export class ListarResultadosComponent implements OnInit {
     return this.listar();
   }
 
+  home():void {
+    if(localStorage.getItem('findme')==="administrador"){
+
+      this.router.navigate(["pages/administrador/admon"]);
+
+    }
+    else if(localStorage.getItem('findme')==="jurado") {
+      this.router.navigate(["pages/administrador/jurado"]);
+
+    }
+    
+  }
+
   listar(): void {
     this.miServicioResultados.listar().subscribe(data => {
 

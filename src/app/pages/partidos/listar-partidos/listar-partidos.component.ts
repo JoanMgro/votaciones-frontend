@@ -24,7 +24,10 @@ export class ListarPartidosComponent implements OnInit {
       this.partidos = data;
     })
   }
+  home(): void {
+    this.router.navigate(["pages/administrador/admon"]);
 
+  }
 
 
  

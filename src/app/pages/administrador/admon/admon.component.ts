@@ -36,6 +36,12 @@ export class AdmonComponent implements OnInit {
     
   }
 
+  logOut(): void {
+    localStorage.clear();
+    this.router.navigate(["pages/seguridad/login"]);
+  }
+
+
 }
 
 

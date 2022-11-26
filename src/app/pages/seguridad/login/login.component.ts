@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
     this.rol= this.getDecodedAccessToken(data['token']);
     this.rol= this.rol['sub']['rol']['nombre'];
     console.log(this.rol);
+    localStorage.setItem('findme', this.rol);
+    console.log(localStorage.getItem('findme'));
 
     if(this.rol === "ciudadano"){
       console.log('hello cuidadano');

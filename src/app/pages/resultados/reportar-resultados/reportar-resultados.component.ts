@@ -84,6 +84,27 @@ export class ReportarResultadosComponent implements OnInit {
   }
 
 
+  home():void {
+    if(localStorage.getItem('findme')==="administrador"){
+
+      this.router.navigate(["pages/administrador/admon"]);
+
+    }
+    else if(localStorage.getItem('findme')==="jurado") {
+      this.router.navigate(["pages/administrador/jurado"]);
+
+    }
+    else {
+      this.router.navigate(["pages/resultados/reportar"])
+    }
+    
+  }
+
+  logOut(): void {
+    localStorage.clear();
+    this.router.navigate(["pages/seguridad/login"]);
+  }
+
 
 
 }

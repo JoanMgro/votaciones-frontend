@@ -22,6 +22,10 @@ export class JuradoComponent implements OnInit {
     this.router.navigate(["pages/resultados/reportar"]);
     
   }
+  logOut(): void {
+    localStorage.clear();
+    this.router.navigate(["pages/seguridad/login"]);
+  }
 
 
 }

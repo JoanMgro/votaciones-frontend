@@ -37,7 +37,10 @@ export class ListarCandidatosComponent implements OnInit {
   }
 
   home():void {
-    this.router.navigate(["pages/administrador/admon"]);
+  
+
+      this.router.navigate(["pages/administrador/admon"]);
+
   }
 
   agregar(): void {

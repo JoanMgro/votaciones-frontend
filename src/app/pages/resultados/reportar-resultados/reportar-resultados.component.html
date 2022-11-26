@@ -34,7 +34,7 @@
                 *ngFor="let mesaActual of mesas">{{mesaActual.numero}}</option>
             </select>
             <button type="button" class="btn btn-success" (click)="listarVotosMesa()">
-                <i class="fas fa-plus"></i>
+                <i class="fas fa-plus">Mostrar Resultados</i>
             </button>
         </div>
 
@@ -77,4 +77,15 @@
             </ng-container>
         </table>
     </nb-card> 
+</div>
+
+<div >
+    <button type="button" class="btn btn-success" (click)="home()">
+        Home
+    </button>
+    
+    <button type="button" class="btn btn-success btn-danger" (click)="logOut()">
+        Log Out
+    </button>
+
 </div>
